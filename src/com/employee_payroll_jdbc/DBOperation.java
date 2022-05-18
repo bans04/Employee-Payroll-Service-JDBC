@@ -19,7 +19,23 @@ public class DBOperation {
 		String query = "select * from employee_payroll";
 		PreparedStatement psmt = con.prepareStatement(query);
 		ResultSet rs = psmt.executeQuery(query);
-		System.out.println("records retrive successfully");
+		while (rs.next())
+	      {
+	        int id = rs.getInt("id");
+	        String firstName = rs.getString("name");
+	        String gender = rs.getString("gender");
+	        String salary = rs.getString("salary");
+	        String start_date = rs.getString("phone_no");
+	        String address = rs.getString("address");
+	        String departments = rs.getString("departments");
+	        String deduction = rs.getString("deduction");
+	        String taxable_pay = rs.getString("taxable_pay");
+	        String income_tax = rs.getString("income_tax");
+	        
+	        // print the results
+	        System.out.format("%s, %s, %s, %s, %s, %s, %s, %s, %s, %s\n", id, firstName, gender, salary, start_date, address, departments, deduction, taxable_pay, income_tax);
+	      }
+		System.out.println("records retrive successfully" );
 		dbConnection.closeConnections(con);
 	}
 	
