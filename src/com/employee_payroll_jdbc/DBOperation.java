@@ -16,7 +16,7 @@ public class DBOperation {
 	//retrive data from database
 	public void retrive() throws SQLException, ClassNotFoundException {
 		Connection con = dbConnection.getConnection();
-		String query = "select * from employee_payroll";
+		String query = "select * from employee_payroll where name = 'Sagar'";
 		PreparedStatement psmt = con.prepareStatement(query);
 		ResultSet rs = psmt.executeQuery(query);
 		while (rs.next())
