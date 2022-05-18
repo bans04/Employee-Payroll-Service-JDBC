@@ -16,7 +16,8 @@ public class DBOperation {
 	//retrive data from database
 	public void retrive() throws SQLException, ClassNotFoundException {
 		Connection con = dbConnection.getConnection();
-		String query = "select * from employee_payroll where name = 'Sagar'";
+		//String query = "select * from employee_payroll where name = 'Sagar'";
+		String query = "select * from employee_payroll where start_date between cast('2019-01-01'\r\n" + "as date) and date(now());";
 		PreparedStatement psmt = con.prepareStatement(query);
 		ResultSet rs = psmt.executeQuery(query);
 		while (rs.next())
