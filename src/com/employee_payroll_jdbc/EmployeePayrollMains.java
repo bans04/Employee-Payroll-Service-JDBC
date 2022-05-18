@@ -1,4 +1,7 @@
 package com.employee_payroll_jdbc;
+
+import java.sql.SQLException;
+
 /*
  * ------------------------------Employee payroll Main ------------------------------
  * 
@@ -7,12 +10,9 @@ package com.employee_payroll_jdbc;
  * */
 public class EmployeePayrollMains {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException, ClassNotFoundException {
 		//instance
-		DBConnection dbConnection = new DBConnection();
-		String url = "jdbc:mysql://localhost:3306/payroll_service";
-		String user_Id = "root";
-		String pass = "Bansode@123";
-		dbConnection.dbonnection(url, user_Id, pass);
+		DBOperation dbOperations = new DBOperation();
+		dbOperations.retrive();
 	}
 }
