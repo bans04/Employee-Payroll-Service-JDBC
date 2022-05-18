@@ -13,6 +13,12 @@ public class EmployeePayrollMains {
 	public static void main(String[] args) throws SQLException, ClassNotFoundException {
 		//instance
 		DBOperation dbOperations = new DBOperation();
+		
 		dbOperations.retrive();
+		System.out.println("------------------------------------------------------------");
+		
+		//update salary
+		dbOperations.updatetData();
+		System.out.println("------------------------------------------------------------");
 	}
 }

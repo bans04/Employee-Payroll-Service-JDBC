@@ -19,10 +19,17 @@ public class DBOperation {
 		String query = "select * from employee_payroll";
 		PreparedStatement psmt = con.prepareStatement(query);
 		ResultSet rs = psmt.executeQuery(query);
+		System.out.println("records retrive successfully");
 		dbConnection.closeConnections(con);
 	}
 	
-	public void insertData() {
-		
+	public void updatetData() throws ClassNotFoundException, SQLException {
+		Connection con = dbConnection.getConnection();
+		String query = "update employee_payroll set salary = ? where id = 5";
+		PreparedStatement psmt = con.prepareStatement(query);
+		psmt.setString(1, "3000000");
+		int i= psmt.executeUpdate();  
+		System.out.println(i+" records update successfully"); 
+		dbConnection.closeConnections(con);
 	}
 }
