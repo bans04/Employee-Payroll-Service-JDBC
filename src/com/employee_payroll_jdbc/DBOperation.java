@@ -6,6 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 /*
  * --> Statement:-> Ability for Employee Payroll Service to retrieve the Employee Payroll from the Database
+ * -->    			Ability to update the salary i.e. the base pay for Employee Terisa to 3000000.00 and sync it with Database
+ * -->				Ability to update the salary i.e. the base pay for Employee Terisa to 3000000.00 and sync it with Database using JDBC PreparedStatement
+ * -->				Ability to retrieve all employees who have joined in a particular data range from the payroll service database
+ * -->				Ability to find sum, average, min, max and number of male and female employees
+ * --> 				Ability to add a new Employee to the Payroll
+ * 
  * 
  * -->@Dnyandeo Bansode
  * */
@@ -14,14 +20,6 @@ import java.util.Scanner;
 public class DBOperation {
 	DBConnection dbConnection = new DBConnection("jdbc:mysql://localhost:3306/payroll_service", "root", "Bansode@123");
 	Scanner sc = new Scanner(System.in);
-	
-	public void common(String query) throws ClassNotFoundException, SQLException {
-		Connection con = dbConnection.getConnection();
-		PreparedStatement psmt = con.prepareStatement(query);
-		psmt.execute();
-		dbConnection.closeConnections(con);
-		System.out.println("================================================================");
-	}
 	
 	//retrive data from database
 	public void retrive(String query) throws SQLException, ClassNotFoundException {
@@ -62,7 +60,10 @@ public class DBOperation {
 		System.out.println(i+" records update successfully"); 
 		dbConnection.closeConnections(con);
 	}
-	
+	/*
+	 * Functions in database :-> sum, ave, count, min, max etc.
+	 * 
+	 * */
 	public void methodeOperation(String query) throws ClassNotFoundException, SQLException {
 		Connection con = dbConnection.getConnection();
 		PreparedStatement psmt = con.prepareStatement(query);
@@ -70,5 +71,20 @@ public class DBOperation {
 		rs.next();
 		System.out.println(rs.getString(1));
 		dbConnection.closeConnections(con);
+	}
+	
+	/*
+	 * Add new employee into database
+	 * 
+	 * */
+	public void addNewEmployee(String query) throws ClassNotFoundException, SQLException {
+		Connection con = dbConnection.getConnection();
+		//String query = "insert into employee_payroll(Id, name, gender, salary, start_date, phone_no, address, departments, deduction, taxable_pay, income_tax)"
+		//		+ "VALUES (7, 'Shivam', 'M', 5677765, '2019-10-24', 67768787676, 'satara', 'produciton', 5677765 * 10/100, 5677765 * 10/100, (5677765 * 10/100) * 10/100 )";
+		PreparedStatement psmt = con.prepareStatement(query);
+		int i= psmt.executeUpdate();  
+		System.out.println(i+" records update successfully"); 
+		dbConnection.closeConnections(con);
+		
 	}
 }

@@ -17,7 +17,7 @@ public class EmployeePayrollMains {
 		Scanner sc = new Scanner(System.in);
 		
 		while(true) {
-			System.out.println(" 1.Retive data \n 2.Update salary \n 3.Sum of salary");
+			System.out.println(" 1.Retive data \n 2.Update salary \n 3.Sum of salary \n 4.Add new employee");
 			System.out.print("Enter your choice:-> ");
 			int choice = sc.nextInt();
 			
@@ -40,6 +40,11 @@ public class EmployeePayrollMains {
 					//String query2 = "SELECT max(salary) FROM employee_payroll WHERE gender = 'M' GROUP BY gender";
 					String query2 = "SELECT count(salary) FROM employee_payroll WHERE gender = 'M' GROUP BY gender";
 					dbOperations.methodeOperation(query2);
+					
+				case 4:
+					String query3 = "insert into employee_payroll(Id, name, gender, salary, start_date, phone_no, address, departments, deduction, taxable_pay, income_tax)"
+							+ "VALUES (7, 'Shivam', 'M', 5677765, '2019-10-24', 67768787676, 'satara', 'produciton', 5677765 * 10/100, 5677765 * 10/100, (5677765 * 10/100) * 10/100 )";
+					dbOperations.addNewEmployee(query3);
 			}
 		}
 	}
