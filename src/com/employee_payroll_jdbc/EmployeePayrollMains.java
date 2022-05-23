@@ -43,7 +43,7 @@ public class EmployeePayrollMains {
 					
 				case 4:
 					String query3 = "insert into employee_payroll(Id, name, gender, salary, start_date, phone_no, address, departments, deduction, taxable_pay, income_tax)"
-							+ "VALUES (7, 'Shivam', 'M', 5677765, '2019-10-24', 67768787676, 'satara', 'produciton', 5677765 * 10/100, 5677765 * 10/100, (5677765 * 10/100) * 10/100 )";
+							+ "VALUES (7, 'Shivam', 'M', 567765, '2019-10-24', 67768787676, 'satara', 'produciton', 567765 * 10/100, 5677765 * 10/100, (5677765 * 10/100) * 10/100 )";
 					dbOperations.addNewEmployee(query3);
 			}
 		}

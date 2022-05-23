@@ -11,7 +11,7 @@ import java.sql.SQLException;
  * -->				Ability to retrieve all employees who have joined in a particular data range from the payroll service database
  * -->				Ability to find sum, average, min, max and number of male and female employees
  * --> 				Ability to add a new Employee to the Payroll
- * 
+ * -->				Ability to also add to payroll details when a new Employee is added to the Payroll
  * 
  * -->@Dnyandeo Bansode
  * */
@@ -74,7 +74,7 @@ public class DBOperation {
 	}
 	
 	/*
-	 * Add new employee into database
+	 * Add new employee into database with data
 	 * 
 	 * */
 	public void addNewEmployee(String query) throws ClassNotFoundException, SQLException {
@@ -85,6 +85,5 @@ public class DBOperation {
 		int i= psmt.executeUpdate();  
 		System.out.println(i+" records update successfully"); 
 		dbConnection.closeConnections(con);
-		
 	}
 }
